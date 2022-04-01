@@ -1,8 +1,11 @@
 const AdminPresupuesto = ({presupuesto})=>{
 
     const formatPresupuesto = (cantidad)=>{
-        return cantidad.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
-    
+        return cantidad.toLocaleString('en-US', 
+        {
+          style: 'currency',
+          currency: 'USD'
+        })
     }
 
 

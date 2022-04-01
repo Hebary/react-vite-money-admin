@@ -21,6 +21,7 @@ const Header = ({presupuesto, setPresupuesto, isValidPresupuesto,setIsValidPresu
                 )
             }
         </header>
+        
     )   
 }
 
