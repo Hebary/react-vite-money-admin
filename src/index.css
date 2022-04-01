@@ -408,3 +408,16 @@ body .modal {
     font-size: 2.4rem;
     text-align: right;
 }
+
+.animate{
+    animation:fade .3s ease;
+}
+
+@keyframes fade {
+    from{
+        transform: translateY(-2rem);
+        }
+    to{
+        transform: translateY(5rem); 
+    }
+}
