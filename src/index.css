@@ -148,6 +148,8 @@ header h1 {
     color: #b91c1c;
 }
 .alerta.success {
+    border-left: 5px solid green;
+    color: green;
 }
 
 .contenedor {
