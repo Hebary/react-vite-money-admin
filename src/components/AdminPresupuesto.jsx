@@ -1,4 +1,11 @@
 const AdminPresupuesto = ({presupuesto})=>{
+
+    const formatPresupuesto = (cantidad)=>{
+        return cantidad.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
+    
+    }
+
+
     return(
     <div className=" animate contenedor contenedor-presupuesto sombra dos-columnas">
         <div>
@@ -6,7 +13,13 @@ const AdminPresupuesto = ({presupuesto})=>{
         </div>
         <div className="contenido-presupuesto">
             <p>
-                <span>Presupuesto:</span>${' '}{presupuesto}
+                <span>Presupuesto:</span>{' '}{formatPresupuesto(presupuesto)}
+            </p>
+            <p>
+                <span>Disponible:</span>{' '}{formatPresupuesto(0)}
+            </p>
+            <p>
+                <span>Gastado:</span>{' '}{formatPresupuesto(0)}
             </p>
         </div>
     </div>
