@@ -2,8 +2,9 @@
 import { useState } from "react"
 import Header from "./components/Header"
 import Modal from "./components/Modal"
-import ListadoGastos from "./components/ListadoGastos";
 import { generarId } from "./utilities/utilities";
+import ListadoGastos from "./components/ListadoGastos";
+
 import iconoNuevoGasto from "./img/nuevo-gasto.svg";
 
 function App() {
@@ -39,7 +40,7 @@ function App() {
   }
 
   return (
-      <div>
+      <div className={modal && "fijar"}>
         <Header
           presupuesto={presupuesto}
           setPresupuesto={setPresupuesto}

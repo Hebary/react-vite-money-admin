@@ -32,7 +32,7 @@ const Modal = ({ setModal, animarModal, setAnimarModal, guardarGasto }) => {
 
   return (
 
-    <div className="modal">
+    <div className="modal" >
 
       <div className="cerrar-modal">
         <img
