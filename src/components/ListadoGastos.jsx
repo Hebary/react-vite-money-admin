@@ -11,7 +11,7 @@ const ListadoGastos = ({gastos}) => {
             
             <Gasto
               key={gasto.id}
-              gastos={gastos}
+              gasto={gasto}
             />
 
           ))

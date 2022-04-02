@@ -26,12 +26,14 @@ function App() {
   
   
   const guardarGasto = gasto=>{
-    gasto.id = generarId()
+    gasto.id = generarId();
+    gasto.fecha = Date.now();
+    // fecha en la que se realizó el gasto
     setGastos([...gastos,gasto]);
 
     setAnimarModal(false)
     setTimeout(() => {
-      setModal(false)
+      setModal(false);
     }, 450);
 
   }

@@ -1,9 +1,15 @@
-const Gasto = ({gastos})=>{
-
+const Gasto = ({gasto})=>{
+    
+const{categoria,nombreGasto,cantidad,id} = gasto;
 
     return(
-        <div>
-            <h4>{gastos[0].nombreGasto}</h4>
+        <div className="gasto sombra">
+            <div className="contenido-gasto">
+                <div className="descripcion-gasto">
+                    <p className="categoria">{ categoria }</p>
+                    <p className="nombre-gasto">{ nombreGasto }</p>
+                </div>
+            </div>
         </div>
 
     );
