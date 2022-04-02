@@ -1,12 +1,13 @@
 import { useState } from "react";
-import cerrar from "../img/cerrar.svg"
 import Mensaje from "./Mensaje";
-const Modal = ({ setModal, animarModal, setAnimarModal }) => {
+import cerrar from "../img/cerrar.svg";
 
+const Modal = ({ setModal, animarModal, setAnimarModal, guardarGasto }) => {
     const[mensaje, setMensaje] = useState('');
     const[nombreGasto,setNombreGasto] = useState("");
     const[cantidad,setCantidad] = useState("");
     const[categoria,setCategoria] = useState('');
+  
 
 
   const handleSubmit = e =>{
@@ -18,6 +19,7 @@ const Modal = ({ setModal, animarModal, setAnimarModal }) => {
       }, 3000);      
       return;
     }
+    guardarGasto({nombreGasto,cantidad,categoria});
   }
 
   const ocultarModal = () => {
