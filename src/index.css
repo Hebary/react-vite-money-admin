@@ -417,7 +417,7 @@ body .modal {
 }
 
 .animate{
-    animation:fade .3s ease;
+    animation:fade .650s ease;
 }
 
 @keyframes fade {
