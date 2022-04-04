@@ -1,14 +1,29 @@
-import { useState } from "react";
+import { useState, useEffect} from "react";
 import Mensaje from "./Mensaje";
 import cerrar from "../img/cerrar.svg";
 
-const Modal = ({ setModal, animarModal, setAnimarModal, guardarGasto }) => {
+const Modal = ({ 
+    setModal,
+    animarModal, 
+    setAnimarModal, 
+    guardarGasto, 
+    editarGasto}) => {
+    const [fecha, setFecha] = useState('')
+    const [id,setId] = useState('');  
     const[mensaje, setMensaje] = useState('');
     const[nombreGasto,setNombreGasto] = useState("");
     const[cantidad,setCantidad] = useState("");
     const[categoria,setCategoria] = useState('');
   
-
+    useEffect(()=>{
+      if( Object.keys(editarGasto).length > 0){
+        setNombreGasto(editarGasto.nombreGasto);
+        setCantidad(editarGasto.cantidad);
+        setCategoria(editarGasto.categoria);
+        setId(editarGasto.id);
+        setFecha(editarGasto.fecha);
+      }
+    },[])
 
   const handleSubmit = e =>{
     e.preventDefault();
@@ -19,7 +34,7 @@ const Modal = ({ setModal, animarModal, setAnimarModal, guardarGasto }) => {
       }, 3000);      
       return;
     }
-    guardarGasto({nombreGasto,cantidad,categoria});
+    guardarGasto({nombreGasto, cantidad, categoria, id, fecha});
   }
 
   const ocultarModal = () => {
@@ -46,7 +61,7 @@ const Modal = ({ setModal, animarModal, setAnimarModal, guardarGasto }) => {
         onSubmit={handleSubmit}
       >
         
-        <legend>Nuevo Gasto</legend>
+        <legend>{editarGasto.nombreGasto  ? 'Editar Gasto':'Nuevo Gasto'}</legend>
         {mensaje!=="" && <Mensaje tipo="error-modal">{mensaje}</Mensaje>}
         <div className="campo">
           <label htmlFor="nombre">Nombre Gasto</label>
@@ -89,7 +104,7 @@ const Modal = ({ setModal, animarModal, setAnimarModal, guardarGasto }) => {
 
         <input 
           type="submit" 
-          value="Añadir gasto"
+          value={editarGasto.nombreGasto ? 'Guardar Cambios':'Añadir Gasto'}
         /> 
 
       </form>

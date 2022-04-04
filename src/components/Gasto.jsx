@@ -16,7 +16,7 @@ import iconoOcio from "../img/icono_ocio.svg"
 import iconoSalud from "../img/icono_salud.svg"
 import iconoSuscrip from "../img/icono_suscripciones.svg"
 
-const Gasto = ({gasto})=>{
+const Gasto = ({gasto, setEditarGasto, eliminarGasto})=>{
 
 const{ categoria, nombreGasto ,cantidad, id, fecha } = gasto;
 
@@ -32,7 +32,9 @@ const{ categoria, nombreGasto ,cantidad, id, fecha } = gasto;
 
     const leadingActions = ()=>(
         <LeadingActions>
-            <SwipeAction onClick={()=>console.log('editar')}>
+            <SwipeAction 
+              onClick={ ()=>setEditarGasto(gasto) }
+            >
                 Editar
             </SwipeAction>
         </LeadingActions>
@@ -41,7 +43,10 @@ const{ categoria, nombreGasto ,cantidad, id, fecha } = gasto;
 
     const trailingActions = ()=>(
         <TrailingActions>
-            <SwipeAction onClick={()=>console.log('Eliminar')}>
+            <SwipeAction 
+              onClick={()=>eliminarGasto(id)}
+              destructive={true}    
+            >
                 Eliminar
             </SwipeAction>
         </TrailingActions>
