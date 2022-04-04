@@ -7,7 +7,10 @@ const Modal = ({
     animarModal, 
     setAnimarModal, 
     guardarGasto, 
-    editarGasto}) => {
+    editarGasto,
+    setEditarGasto
+}) => {
+
     const [fecha, setFecha] = useState('')
     const [id,setId] = useState('');  
     const[mensaje, setMensaje] = useState('');
@@ -39,6 +42,7 @@ const Modal = ({
 
   const ocultarModal = () => {
     setAnimarModal(false)
+    setEditarGasto({});
     setTimeout(() => {
       setModal(false)
     }, 650);
