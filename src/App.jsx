@@ -2,20 +2,25 @@
 import { useState, useEffect } from "react"
 import Header from "./components/Header"
 import Modal from "./components/Modal"
-import { generarId } from "./utilities/utilities";
 import ListadoGastos from "./components/ListadoGastos";
-
+import Filtros from "./components/Filtros";
+import { generarId } from "./utilities/utilities";
 import iconoNuevoGasto from "./img/nuevo-gasto.svg";
 
 function App() {
 
-
-  const [editarGasto,setEditarGasto] = useState({});
-  const[gastos, setGastos] = useState([]);
-  const [presupuesto, setPresupuesto] = useState(0);
-  const[isValidPresupuesto, setIsValidPresupuesto]  = useState(false);
-  const [modal,setModal] = useState(false);
-  const [animarModal,setAnimarModal] = useState(false);
+  const [presupuesto, setPresupuesto] = useState(
+    Number(localStorage.getItem('presupuesto') ?? 0)
+  );
+    const[isValidPresupuesto, setIsValidPresupuesto]  = useState(false);
+    const [modal,setModal] = useState(false);
+    const [animarModal,setAnimarModal] = useState(false);
+    
+  const[gastos, setGastos] = useState(
+      localStorage.getItem('gastos') ? JSON.parse(localStorage.getItem('gastos')) : []
+  );
+      const [editarGasto,setEditarGasto] = useState({});
+      const [filtro, setFiltro]  = useState('');
   
   
     useEffect(()=>{
@@ -27,9 +32,28 @@ function App() {
         }
     },[ editarGasto ])
   
+    useEffect(()=>{
+      Number(localStorage.setItem('presupuesto',presupuesto) ?? 0);
+    },[presupuesto])
+
+    useEffect(()=>{ 
+      const presupLS = Number(localStorage.getItem('presupuesto') ?? 0);
+      if(presupLS > 0){
+        setIsValidPresupuesto(true)
+      }
+    },[]);
   
-  
-  const handleNuevoGasto = ()=>{
+    useEffect(()=>{
+      localStorage.setItem('gastos',JSON.stringify(gastos) ?? []);
+    },[gastos])
+
+    useEffect(() => {
+      if(filtro){
+        const filtrado = gastos.filter(gasto => gasto.categoria === filtro);
+      }
+    },[filtro])
+
+    const handleNuevoGasto = ()=>{
       setModal(true);
       setEditarGasto({});
       setTimeout(() => {
@@ -80,6 +104,10 @@ function App() {
         
         <>
           <main>
+            <Filtros
+              filtro={filtro}
+              setFiltro={setFiltro}
+            />
             <ListadoGastos
               gastos={gastos}
               setEditarGasto={setEditarGasto}
