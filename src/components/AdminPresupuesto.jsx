@@ -1,4 +1,18 @@
-const AdminPresupuesto = ({presupuesto})=>{
+import { useState, useEffect } from "react"
+
+const AdminPresupuesto = ( {presupuesto, gastos} )=>{
+
+    const [disponible,setDisponible] = useState(0);
+    const [gastado,setGastado] = useState(0);
+
+
+
+    useEffect(()=>{
+        const totalGastado = gastos.reduce( (total, gasto )=> gasto.cantidad + total,0);
+        setGastado(totalGastado);
+        const totalDisponible = presupuesto - totalGastado;
+        setDisponible(totalDisponible);
+    },[gastos])
 
     const formatPresupuesto = (cantidad)=>{
         return cantidad.toLocaleString('en-US', 
@@ -19,10 +33,10 @@ const AdminPresupuesto = ({presupuesto})=>{
                 <span>Presupuesto:</span>{' '}{formatPresupuesto(presupuesto)}
             </p>
             <p>
-                <span>Disponible:</span>{' '}{formatPresupuesto(0)}
+                <span>Disponible:</span>{' '}{formatPresupuesto(disponible)}
             </p>
             <p>
-                <span>Gastado:</span>{' '}{formatPresupuesto(0)}
+                <span>Gastado:</span>{' '}{formatPresupuesto(gastado)}
             </p>
         </div>
     </div>
