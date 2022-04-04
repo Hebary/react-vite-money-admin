@@ -80,7 +80,7 @@ const Modal = ({
         <div className="campo">
           <label htmlFor="cantidad">Cantidad</label>
           <input
-            type="number"
+            type="text"
             placeholder="Añade La Cantidad, Ej $300 "
             id="cantidad"
             value={cantidad}
