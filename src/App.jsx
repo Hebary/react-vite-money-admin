@@ -21,6 +21,7 @@ function App() {
   );
       const [editarGasto,setEditarGasto] = useState({});
       const [filtro, setFiltro]  = useState('');
+      const [gastosFiltrados, setGastosFiltrados]  = useState([]);
   
   
     useEffect(()=>{
@@ -49,7 +50,8 @@ function App() {
 
     useEffect(() => {
       if(filtro){
-        const filtrado = gastos.filter(gasto => gasto.categoria === filtro);
+        const filtrados = gastos.filter(gasto => gasto.categoria === filtro);
+        setGastosFiltrados(filtrados)
       }
     },[filtro])
 
@@ -98,6 +100,7 @@ function App() {
           isValidPresupuesto={isValidPresupuesto}
           setIsValidPresupuesto={setIsValidPresupuesto}
           gastos={gastos}
+          setGastos={setGastos}
         />
       
         {isValidPresupuesto && 
@@ -112,6 +115,8 @@ function App() {
               gastos={gastos}
               setEditarGasto={setEditarGasto}
               eliminarGasto={eliminarGasto}
+              gastosFiltrados={gastosFiltrados}
+              filtro={filtro}
             />  
           </main>
           <div className="nuevo-gasto">
