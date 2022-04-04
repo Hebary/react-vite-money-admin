@@ -62,10 +62,10 @@ const{ categoria, nombreGasto ,cantidad, id, fecha } = gasto;
             >
                 <div className="gasto sombra">
                     <div className="contenido-gasto">
-                        <img
+                        <img 
                             src={diccionarioDeIconos[categoria]}
                             alt={`imagen-${categoria}`}
-                            />
+                        />
                         <div className="descripcion-gasto">
                             <p className="categoria">{ categoria }</p>
                             <p className="nombre-gasto">{ nombreGasto }</p>

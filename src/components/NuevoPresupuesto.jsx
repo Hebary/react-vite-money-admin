@@ -35,7 +35,8 @@ return(
                       name="presupuesto"
                       onChange={e => setPresupuesto(Number(e.target.value))}
                     />
-                    <input 
+                    <input
+                      className="submit-presupuesto" 
                       type="submit"
                       value="Añadir"
                     />

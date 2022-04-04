@@ -431,3 +431,26 @@ body .modal {
         transform: translateY(5rem); 
     }
 }
+
+@media (max-width: 438px) {
+
+    formulario{
+        overflow: hidden;
+    }
+    .campo>input {
+        width: 80%;
+        margin: 10px auto;
+    }
+    .submit-presupuesto{
+        display:block;
+        width: 30%;
+    }
+
+    select{
+        width:50%;
+    }
+    .nuevo-gasto{
+        bottom: 2rem;
+        right: 2rem;
+    }
+}
