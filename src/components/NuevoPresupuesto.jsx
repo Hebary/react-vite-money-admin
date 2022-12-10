@@ -25,7 +25,7 @@ return(
               onSubmit={handlePresupuesto}
               action="#" className="formulario">
                 <div className="campo">
-                    <label htmlFor="presupuesto">Definir Presupuesto</label>
+                    <label htmlFor="presupuesto">Agrega un Presupuesto</label>
                     <input 
                       className="nuevo-presupuesto"
                       type="number"
@@ -38,7 +38,7 @@ return(
                     <input
                       className="submit-presupuesto" 
                       type="submit"
-                      value="Añadir"
+                      value="Agregar"
                     />
                     {mensaje && <Mensaje 
                                 tipo= "error">{mensaje}

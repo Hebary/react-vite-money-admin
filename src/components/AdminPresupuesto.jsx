@@ -2,16 +2,14 @@ import { useState, useEffect } from "react"
 import {CircularProgressbar, buildStyles } from "react-circular-progressbar"
 import "react-circular-progressbar/dist/styles.css";
 
-const AdminPresupuesto = ( {presupuesto, gastos,setGastos,setPresupuesto,setIsValidPresupuesto} )=>{
+const AdminPresupuesto = ( {presupuesto, gastos, setGastos, setPresupuesto, setIsValidPresupuesto} )=>{
 
     const [porcentaje,  setPorcentaje] = useState(0);
     const [disponible,setDisponible] = useState(0);
     const [gastado,setGastado] = useState(0);
 
-
-
     useEffect(()=>{
-        const totalGastado = gastos.reduce( (total, gasto )=> gasto.cantidad + total,0);
+        const totalGastado = gastos.reduce( (total, gasto )=> gasto.cantidad + total, 0);
         const totalDisponible = presupuesto - totalGastado;
         //calcular porcentaje 
         const porcentajeNuevo = ((presupuesto-totalDisponible) * 100 / presupuesto).toFixed(2);
@@ -60,7 +58,7 @@ const AdminPresupuesto = ( {presupuesto, gastos,setGastos,setPresupuesto,setIsVa
              className="reset-app"
              type="button"
              onClick={handleResetApp}>
-                Resetar App
+                Reset
             </button>
 
             <p>

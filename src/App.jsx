@@ -93,7 +93,7 @@ function App() {
 
 
   return (
-      <div className={modal ? "fijar":undefined}>
+      <div className={modal && "fijar"}>
         <Header
           presupuesto={presupuesto}
           setPresupuesto={setPresupuesto}

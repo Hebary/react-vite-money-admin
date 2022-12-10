@@ -72,6 +72,7 @@ const Modal = ({
           <input
             id="nombre"
             type="text"
+            style={{color:'fff'}}
             placeholder="Añade El Nombre Del Gasto, Ej. Transporte"
             value={nombreGasto}
             onChange={ e => setNombreGasto(e.target.value) } 
@@ -81,6 +82,7 @@ const Modal = ({
           <label htmlFor="cantidad">Cantidad</label>
           <input
             type="text"
+            style={{color:'fff'}}
             placeholder="Añade La Cantidad, Ej $300 "
             id="cantidad"
             value={cantidad}
@@ -90,6 +92,7 @@ const Modal = ({
         <div className="campo">
           <label htmlFor="categoria">Categoría</label>
           <select
+          style={{color:'fff'}}
             id="categoria"
             value={categoria}
             onChange={ e => setCategoria(e.target.value) }

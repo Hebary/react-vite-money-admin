@@ -12,7 +12,7 @@ const Header = ({
 
     return (
         <header>
-            <h1>Administrador de Gastos</h1>
+            <h1>Administrador de Dinero</h1>
             {
             isValidPresupuesto ? (
                 <AdminPresupuesto
